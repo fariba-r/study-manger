@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block headd%}
+<title> show all student</title>
+{% endblock%}
+
+{% block bodyy%}
+
+
+    {%for student in list_student%}
+    {% comment %} <h1>{{student.member_id.first_name}}</h1> {% endcomment %}
+        <a href={% url 'mentor:student_detail' student.id %}> {{student.member_id.first_name }}  {{student.member_id.last_name}}</a>
+
+    {%empty %}
+        <h1>no student</h1>
+    {%endfor%} 
+   
+
+{% endblock%}
