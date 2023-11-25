@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block headd%}
+<title> show tasks</title>
+{% endblock %}
+
+
+{% block bodyy%}
+<h1>detaill</h1>
+<h1>{{task.id}}</h1>
+<a href={% url "tasks:done_task" task.id %}>done</a>
+
+
+{% endblock %}

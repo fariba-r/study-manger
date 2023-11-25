@@ -3,7 +3,10 @@ from . import views
 app_name="mentor"
 urlpatterns=[
 
-    path('all_student/',views.ShowStudent.as_view(),name=""),
+    path('all_student/<int:id>',views.ShowStudent.as_view(),name="all_student"),
+    path('mentor_profile/<int:id>',views.MentorProfile.as_view(),name="mentor_profile"),
+    
+    path('create_task/<int:id>/',views.CreateTask.as_view(),name="create_task"),
     path('<slug:slug>/',views.StudentDetail.as_view(),name="student_detail"),
 
 ]

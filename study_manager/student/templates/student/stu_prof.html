@@ -1,0 +1,10 @@
+{%extends "base.html" %}
+{% block headd%}
+<title>student profile</title>
+{% endblock %}
+
+{% block bodyy %}
+<h1>{{student.id}}</h1>
+<a href={% url "tasks:show_ftasks" student.id %}>false task</a>
+<a href={% url "tasks:show_ttasks" student.id %}>true task</a>
+{% endblock %}

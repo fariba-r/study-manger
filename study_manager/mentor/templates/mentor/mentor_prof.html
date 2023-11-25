@@ -1,0 +1,10 @@
+{%extends "base.html" %}
+{% block headd%}
+<title>mentor profile</title>
+{% endblock %}
+
+{% block bodyy %}
+<h1>11111111111111111</h1>
+<h1>{{mentor.member_id.first_name}}</h1>
+<a href={% url "mentor:all_student" mentor.id %}>show all my student</a>
+{% endblock %}

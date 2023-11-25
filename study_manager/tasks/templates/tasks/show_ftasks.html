@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block headd%}
+<title> show tasks</title>
+{% endblock %}
+
+
+{% block bodyy%}
+
+{%for task in tasks %}
+<a href={% url "tasks:show_detail" task.id %}>{{task.categoy}}</a>
+
+{% empty %}
+<h1>no task</h1>
+{% endfor %}
+
+{% endblock %}
