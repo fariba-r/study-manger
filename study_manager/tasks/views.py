@@ -19,7 +19,7 @@ class StudentTTask(View):
 class DetailTask(View):
     def get(self, request,id):
         task_obj=Tasks.objects.get(id=id)
-        print(task_obj.situation,task_obj.categoy)
+        
         if task_obj.situation:
             return render(request,"tasks/detail_ttask.html",{"task":task_obj})
         else:

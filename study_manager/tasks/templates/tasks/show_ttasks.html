@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block headd%}
-<title> show tasks</title>
+<title> show true tasks</title>
 {%endblock%}
 
 
 {% block bodyy%}
 
 {%for task in tasks %}
-<a href={% url "tasks:show_detail" task.id %}>{{task.categoy}}</a>
+<a href={% url "tasks:show_detail" task.id %}>{{task.category}}</a>
+<h5> task</h5>
 {% empty %}
 <h1>no task</h1>
 {% endfor %}
+<h3>trueee</h3>
 {%endblock%}
 {% comment %} key for do a task {% endcomment %}

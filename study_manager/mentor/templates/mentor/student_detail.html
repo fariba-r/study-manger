@@ -6,5 +6,15 @@
 {%block bodyy%}
 <h1>{{student.member_id.first_name}}</h1>
 <a href={% url 'mentor:create_task' student.id %}>create task</a>
-   
+<h1>true task </h1>
+
+{%for ttask in ttasks %}
+<a href={% url 'mentor:detail_task' ttask.id %}>{{ttask.category}}</a>
+{%endfor%}
+
+<h1>false task </h1>
+{%for ftask in ftasks %}
+<a href={% url 'mentor:detail_task' ftask.id %}>{{ftask.category}}</a>
+{%endfor%}
+
 {%endblock %}

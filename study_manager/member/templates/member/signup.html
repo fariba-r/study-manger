@@ -1,0 +1,54 @@
+{%extends "base.html" %}
+
+{% block headd%}
+<title>sign up </title>
+{% endblock %}
+
+{% block bodyy%}
+<form method="post">
+{% csrf_token %}
+
+
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" ><br>
+
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" ><br><br>
+
+  <label for="lname">Birth Day:</label><br>
+  <input type="text" id="lname" name="birthday" ><br><br>
+
+  <label for="lname">Email:</label><br>
+  <input type="text" id="lname" name="email" ><br><br>
+
+  <label for="lname">Mobile Number:</label><br>
+  <input type="text" id="lname" name="mobile_number" ><br><br>
+
+  <label for="lname">Adress:</label><br>
+  <input type="text" id="lname" name="adress" ><br><br>
+
+  <label for="lname">Gender:</label><br>
+  <select name="gender" id="cars">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+  </select><br><br>
+
+  <label for="lname">Role:</label><br>
+  <select name="role" id="cars">
+        <option value="student">student</option>
+        <option value="mentor">mentor</option>
+  </select><br><br>
+
+  <label for="lname">Password:</label><br>
+  <input type="text" id="lname" name="password" ><br><br>
+
+<label for="lname">Username:</label><br>
+  <input type="text" id="lname" name="username" ><br><br>
+
+
+
+
+
+  <input type="submit" value="Submit">
+</form> 
+{% endblock %}

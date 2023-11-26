@@ -5,5 +5,5 @@ class CreatTaskForm(forms.ModelForm):
     class Meta:
         model=Tasks
         fields="__all__"
-
+        exclude=["mentor_id","student_id","situation"]
 

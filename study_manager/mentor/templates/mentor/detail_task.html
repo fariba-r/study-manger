@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block headd%}
+<title> show tasks</title>
+{% endblock %}
+
+
+{% block bodyy%}
+<h1>ttttttttttttttt</h1>
+<h1>{{task.definition}}</h1>
+{% if not task.situation %}
+<a href={% url "mentor:delet_task" task.id %}>delete</a>
+{% endif %}
+{% endblock %}

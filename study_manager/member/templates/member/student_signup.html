@@ -1,0 +1,30 @@
+{%extends "base.html" %}
+
+{% block headd%}
+<title>sign up </title>
+{% endblock %}
+
+{% block bodyy%}
+<form method="post">
+{% csrf_token %}
+
+
+  <label for="fname">Grade:</label><br>
+  <select name="mentor_id" id="cars">
+  <option >10</option>
+  <option >11</option>
+  <option >12</option>
+  </select><br><br>
+  
+  <label for="fname">mentor:</label><br>
+  <select name="mentor_id" id="cars">
+  {% for mentor in mentors%}
+        <option >{{mentor.id}}</option>
+  {% endfor %}
+  </select><br><br>
+
+  
+
+  <input type="submit" value="Submit">
+</form> 
+{% endblock %}

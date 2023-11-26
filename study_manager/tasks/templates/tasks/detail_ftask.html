@@ -8,8 +8,9 @@
 
 {% block bodyy%}
 <h1>detaill</h1>
-<h1>{{task.id}}</h1>
+<h1>{{task.definitoin}}</h1>
 <a href={% url "tasks:done_task" task.id %}>done</a>
-
+{% block delet%}
+{%endblock%}
 
 {% endblock %}

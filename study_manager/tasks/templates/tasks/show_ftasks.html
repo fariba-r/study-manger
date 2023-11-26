@@ -2,17 +2,18 @@
 
 
 {% block headd%}
-<title> show tasks</title>
+<title> show false tasks</title>
 {% endblock %}
 
 
 {% block bodyy%}
 
 {%for task in tasks %}
-<a href={% url "tasks:show_detail" task.id %}>{{task.categoy}}</a>
+<a href={% url "tasks:show_detail" task.id %}>{{task.category}}</a>
+<h5> task</h5>
 
 {% empty %}
 <h1>no task</h1>
 {% endfor %}
-
+<h3>falseeee</h3>
 {% endblock %}

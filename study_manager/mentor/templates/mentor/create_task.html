@@ -7,10 +7,13 @@
 {%csrf_token %}
  
 
-  {% for lable in form %}
+  {% comment %} {% for lable in form %}
   <label for="fname">{{lable}}</label><br>
   <input type="text"  name={{lable}} ><br>
-  {% endfor %}
+  {% endfor %} {% endcomment %}
+  
+  {{ form}}
+  
   <input type="submit" value="Submit">
 
 </form> 
