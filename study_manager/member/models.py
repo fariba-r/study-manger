@@ -38,7 +38,7 @@ class CustomUserMnager(UserManager):
         return self._create_user(first_name,last_name,birthday,address,gender,username, email, password, **extra_fields)
 
 class Members(AbstractUser):
-    objects =CustomUserMnager
+    objects =CustomUserMnager()
     REQUIRED_FIELDS = ["first_name","last_name","birthday","email","mobile_number","gender","address"]
     mobile_number = models.CharField(max_length=11)
     GENDER_CHOICES = [

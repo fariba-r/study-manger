@@ -7,10 +7,23 @@
 
 
 {% block bodyy%}
-<h1>detaill</h1>
-<h1>{{task.definitoin}}</h1>
-<a href={% url "tasks:done_task" task.id %}>done</a>
-{% block delet%}
-{%endblock%}
+<div class="align-items-center text-center">
+    <div class="card bg-light mb-3 text-center ">
+    <div class="card-header">{{task.category}}</div>
+    <div class="card-body">
+        <h5 class="card-title">date of start: </h5>
+        <p>{{task.start_date}}</p>
+        
+        <br>
+        <h4 class="card-title">Difinition</h4>
+        <p class="card-text">{{task.definitoin}}</p>
+    </div>
+    <a href={% url "tasks:done_task" task.id %} class="btn btn-primary" style="background-color:#01d28e;;">Done</a>
+    </div>
+    
+</div>
+
+<h1>{{tasks.definition}}</h1>
+
 
 {% endblock %}

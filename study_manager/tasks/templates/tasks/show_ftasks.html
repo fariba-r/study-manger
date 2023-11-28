@@ -7,13 +7,30 @@
 
 
 {% block bodyy%}
-
+<div class="row ">
 {%for task in tasks %}
-<a href={% url "tasks:show_detail" task.id %}>{{task.category}}</a>
-<h5> task</h5>
 
-{% empty %}
-<h1>no task</h1>
+
+
+    <div class="col-sm-3 ">
+        <div class="card text-center">
+            <div class="card-header " style="background-color: #66ffc2;">
+                {{task.category}}
+            </div>
+            <div class="card-body">
+                
+                <p class="card-text">{{task.definitoin|truncatewords:2}}...</p>
+                <a href={% url "tasks:show_detail" task.id %} class="btn btn-primary" style="background-color:#01d28e;;">Show detail</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{task.start_date}}
+            </div>
+        </div>
+    </div>
+
+<br><br><br>
+
 {% endfor %}
-<h3>falseeee</h3>
+</div>
+
 {% endblock %}

@@ -27,8 +27,8 @@ class StudentDetail(View):
 class MentorProfile(View):
     def get(self,request,id):
         mentor_obj=Mentor.objects.get(member_id=id)
-
-        return render(request, 'mentor/mentor_prof.html',{"mentor":mentor_obj})
+        count_student=student.objects.filter(mentor_id=mentor_obj.id ).count()
+        return render(request, 'mentor/mentor_prof.html',{"mentor":mentor_obj,"count_student":count_student})
     
 class CreateTask(View):
     def get(self,request,id):

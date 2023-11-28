@@ -1,54 +1,144 @@
 {%extends "base.html" %}
-
+{% load static %}
 {% block headd%}
 <title>sign up </title>
+<link href= "{% static '/member/css/style_siup.css'%}"  type="text/css" rel="stylesheet">
+            
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block bodyy%}
-<form method="post">
-{% csrf_token %}
 
 
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" ><br>
-
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" ><br><br>
-
-  <label for="lname">Birth Day:</label><br>
-  <input type="text" id="lname" name="birthday" ><br><br>
-
-  <label for="lname">Email:</label><br>
-  <input type="text" id="lname" name="email" ><br><br>
-
-  <label for="lname">Mobile Number:</label><br>
-  <input type="text" id="lname" name="mobile_number" ><br><br>
-
-  <label for="lname">Adress:</label><br>
-  <input type="text" id="lname" name="adress" ><br><br>
-
-  <label for="lname">Gender:</label><br>
-  <select name="gender" id="cars">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-  </select><br><br>
-
-  <label for="lname">Role:</label><br>
-  <select name="role" id="cars">
-        <option value="student">student</option>
-        <option value="mentor">mentor</option>
-  </select><br><br>
-
-  <label for="lname">Password:</label><br>
-  <input type="text" id="lname" name="password" ><br><br>
-
-<label for="lname">Username:</label><br>
-  <input type="text" id="lname" name="username" ><br><br>
+ <!-- Body of Form starts -->
+  	<div class="container">
+      <form method="post" autocomplete="on">
+      {% csrf_token %}
+        <!--First name-->
+    		<div class="box">
+          <label for="firstName" class="fl fontLabel"> First Name: </label>
+    			<div class="new iconBox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+    			<div class="fr">
+    					<input type="text" name="fname" placeholder="First Name"
+              class="textBox" autofocus="on" required>
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--First name-->
 
 
+        <!--Second name-->
+    		<div class="box">
+          <label for="secondName" class="fl fontLabel"> Last Name: </label>
+    			<div class="fl iconBox"><i class="fa fa-user" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="text" required name="lname"
+              placeholder="Last Name" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Second name-->
 
 
+    		<!---Phone No.------>
+    		<div class="box">
+          <label for="phone" class="fl fontLabel"> Phone No.: </label>
+    			<div class="fl iconBox"><i class="fa fa-phone-square" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="text" required name="mobile_number" maxlength="10" placeholder="Phone No." class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!---Phone No.---->
 
-  <input type="submit" value="Submit">
-</form> 
+
+    		<!---Email ID---->
+    		<div class="box">
+          <label for="email" class="fl fontLabel"> Email Address: </label>
+    			<div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="email" required name="email" placeholder="Email Address" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Email ID----->
+
+        <!---Address---->
+    		<div class="box">
+          <label for="email" class="fl fontLabel"> Address: </label>
+    			<div class="fl iconBox"><i class="fa fa-home" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="text" required name="adress" placeholder=" Address" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Address----->
+
+        <!--Birthday------>
+        <div class="box">
+          <label for="password" class="fl fontLabel"> Birthday</label>
+    			<div class="fl iconBox"><i class="fa fa-birthday-cake" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="text" required name="birthday" placeholder="YYYY-MM-DD" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+
+        <!--Birthday------>
+
+    		<!---Password------>
+    		<div class="box">
+          <label for="password" class="fl fontLabel"> Password </label>
+    			<div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="text" required name="password" placeholder="Password" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!---Password---->
+
+        <!---username------>
+    		<div class="box">
+          <label for="password" class="fl fontLabel"> Username </label>
+    			<div class="fl iconBox"><i class="fa fa-user" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="text" required name="username" placeholder="Username" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!---username---->
+
+
+    		<!---Gender----->
+    		<div class="box radio">
+          <label for="gender" class="fl fontLabel"> Gender: </label>
+    				<input type="radio" name="gender" value="Male" required> Male &nbsp; &nbsp; &nbsp; &nbsp;
+    				<input type="radio" name="gender" value="Female" required> Female
+					
+    		
+    		</div>
+    		<!---Gender--->
+
+        <!---Role----->
+        <div class="box radio">
+          <label for="gender" class="fl fontLabel"> Role: </label>
+    				<input type="radio" name="role" value="student" required> Student &nbsp; &nbsp; &nbsp; &nbsp;
+    				<input type="radio" name="role" value="mentor" required> Mentor
+    		</div>
+        <!---Role----->
+
+    		
+    		<!---Submit Button------>
+    		<div class="box" style="background: #2d3e3f">
+    				<input type="Submit" name="Submit" class="submit" value="SUBMIT">
+    		</div>
+    		<!---Submit Button----->
+      </form>
+  </div>
+  <script src="{% static 'member/js/signup_birthday.js' %}"></script>
+
+  <!--Body of Form ends--->
 {% endblock %}
+

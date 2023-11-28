@@ -1,7 +1,11 @@
 {%extends "base.html" %}
-
+{% load static %}
 {% block headd%}
-<title>sign up </title>
+<title> mentor sign up </title>
+<link href= "{% static '/member/css/style_siup.css'%}"  type="text/css" rel="stylesheet">
+            
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 {% endblock %}
 
 {% block bodyy%}
@@ -16,4 +20,34 @@
 
   <input type="submit" value="Submit">
 </form> 
+
+<div class="container">
+      <form method="post" autocomplete="on">
+      {% csrf_token %}
+       
+
+      <div class="box">
+          <label for="password" class="fl fontLabel"> Salary </label>
+    			<div class="fl iconBox"><i class="fa fa-dollar" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="text" required name="salary" placeholder="salary" class="textBox">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+        
+
+			
+    		
+
+       
+
+    		
+    		<!---Submit Button------>
+    		<div class="box" style="background: #2d3e3f">
+    				<input type="Submit" name="Submit" class="submit" value="SUBMIT">
+    		</div>
+    		<!---Submit Button----->
+      </form>
+  </div>
+  <script src="{% static 'member/js/signup_birthday.js' %}"></script>
 {% endblock %}

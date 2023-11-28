@@ -1,14 +1,80 @@
+
 {% extends "base.html" %}
+{%load static %}
 
 {% block headd%}
 <title>loging page</title>
+<link rel="stylesheet" href="{% static 'member/css/style.css' %}" type="text/css">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	
 {%endblock%}
 {% block bodyy%}
+<section class="ftco-section">
+		<div class="container">
+			
 
+			<div class="row justify-content-center">
+				<div class="col-md-7 col-lg-5">
+					<div class="wrap">
+						<div class="img" style="background-image: url(images/bg-1.jpg);"></div>
+						<div class="login-wrap p-4 p-md-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4 ">Sign In</h3>
+			      		</div>
+								<div class="w-100">
+									<p class="social-media d-flex justify-content-end">
+										<a href="https://www.kanoon.ir" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-telegram"></span></a>
+										<a href="https://www.instagram.com/kanoon.ir" class="social-icon d-flex align-items-center justify-content-center"><span class="fa  fa-instagram"></span></a>
+									</p>
+								</div>
+			      	</div>
+							<form method='post' enctype='multipart/form-data' class="signin-form">
+                            {% csrf_token %}
+                            {% for field in form %}
+			      		<div class="form-group mt-3">
+                        <label class="form-control-placeholder" for="username">{{field.label}}</label> 
+							{{field}}
+			      			{% comment %} <input type="text" class="form-control" required > {% endcomment %}
+			      			
+			      		</div>
+		            <div class="form-group">
+                    
+		              
+		              
+		              
+		            </div>
+		            <div class="form-group">
+                    {% endfor %}
+		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+		            </div>
+		           
+		          </form>
+		          <p class="text-center">Not a member? <a style='color: #01d28e;' href={% url "member:signup" %}>Sign Up</a></p>
+				 
+		        </div>
+		      </div>
+				</div>
+			</div>
+           
+		</div>
+	</section>
+
+	
+
+   <script src="{% static 'member/js/jquery.min.js' %}"></script>
+  <script src="{% static 'member/js/popper.js' %}"></script>
+  <script src="{% static 'member/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'member/js/main.js' %}"></script> 
+{% comment %} 
 	<form method='post' enctype='multipart/form-data' > 
     {% csrf_token %}
-    {% comment %} {{form}} {% endcomment %}
-    {% comment %} <small>{{form.help_text}}</small>   {% endcomment %}
+   
     {% for field in form %}
         <div>
             <label for={{field.id_for_label}}>{{field.label}}</label>
@@ -20,4 +86,5 @@
     <button type='submit' class="btn btn-primary">Submit</button>
 </form>
 <a href={% url "member:signup" %}>sing up</a>
-{% endblock %}
+{% endcomment %}
+{% endblock %} 

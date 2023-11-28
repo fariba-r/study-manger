@@ -7,7 +7,23 @@
 
 
 {% block bodyy%}
-<h1>ttttttttttttttt</h1>
+
+{% comment %} 0000000000000000000000000000000000000000000 {% endcomment %}
+<div class="align-items-center">
+    <div class="card bg-light mb-3 text-center ">
+    <div class="card-header">{{task.category}}</div>
+    <div class="card-body">
+        <h5 class="card-title">date of start: </h5>
+        <p>{{task.start_date}}</p>
+        <h5 class="card-title">date of finish: </h5>
+        <p>{{task.finish_date}}</p>
+        <br>
+        <h4 class="card-title">Difinition</h4>
+        <p class="card-text">{{task.definitoin}}</p>
+    </div>
+    </div>
+</>
+
 <h1>{{tasks.definition}}</h1>
 
 

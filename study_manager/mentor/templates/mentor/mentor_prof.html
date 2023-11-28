@@ -1,10 +1,41 @@
 {%extends "base.html" %}
+{%load static%}
 {% block headd%}
 <title>mentor profile</title>
+<link href= "{% static '/member/css/style_siup.css'%}"  type="text/css" rel="stylesheet">
+            
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 {% endblock %}
 
 {% block bodyy %}
-<h1>11111111111111111</h1>
-<h1>{{mentor.member_id.first_name}}</h1>
-<a href={% url "mentor:all_student" mentor.id %}>show all my student</a>
+<div class="container " style="border-radius: 25px;">
+   <div class="text-center" style="width: 18rem;">
+  <div class="card-body">
+    <h1 class="card-title">Hello {{mentor.member_id.first_name}}</h1>
+
+    <p class="card-text">you have  {{count_student}} students.</p>
+    <a href={% url "mentor:all_student" mentor.id %} class="btn btn-primary" style="margin-bottom: 25px; background-color: white;color:black">Show all my student</a>
+   
+  </div>
+</div>
+
+
+  </div>
+  <script src="{% static 'member/js/signup_birthday.js' %}"></script>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+
+
+
+
+
+
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse
 from django.views import View
 # Create your views here.
@@ -43,6 +43,7 @@ class LoginView(View):
     
 class SignUpView(View):
     def get(self, request):
+        
         return render(request,"member/signup.html")
 
     def post(self, request):
@@ -66,13 +67,14 @@ class SignUpView(View):
         # print(request.POST.get('role'))
 
         if request.POST.get('role')=='student':
-            print("pppppppppppppppppppppppp")
+            
             return redirect(reverse('member:student_signup', args=(member_obj.id,)))
         else:
-            print("ffffffffffffffffffffffffffffffffffff")
+            
             return redirect(reverse('member:mentor_signup', args=(member_obj.id,)))
+        
 
-class StudentSignup(View):
+class StudentSignup(View,SuccessMessageMixin):
     def get(self, request,id):
         # id member
         mentor=Mentor.objects.all()
@@ -80,25 +82,30 @@ class StudentSignup(View):
 
     def post(self, request,id):
         member_obj=Members.objects.get(id=id)
+        mentor_obj=Mentor.objects.get(id=request.POST.get('mentor_id'))
+       
         student_obj=student(
                                         member_id=member_obj,
                                         grade=request.POST.get('grade'),
-                                        mentor_id=request.POST.get('mentor_id')
+                                        mentor_id=mentor_obj
                                         
                                         )
         
         student_obj.save()
+        success_message = 'List successfully saved!!!!'
+        
+        print(request)
         return redirect(reverse("member:login"))
 
 class MentorSignup(View):
     def get(self, request,id):
         # id member
-        print("2222222222222222222222222222222222222222222222222222222222222222222222222")
+        
         return render(request,"member/mentor_signup.html")
     
     def post(self, request,id):
-        print(id)
-        print("11111111111111111111111111111111111111111111111111111111111111111111111111111")
+        
+        
         member_obj=Members.objects.get(id=id)
         
         mentor_obj=Mentor(

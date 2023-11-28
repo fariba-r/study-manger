@@ -1,10 +1,102 @@
 {%extends "base.html" %}
+{%load static%}
 {% block headd%}
 <title>student profile</title>
+<link href= "{% static '/member/css/style_siup.css'%}"  type="text/css" rel="stylesheet">
+            
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 {% endblock %}
 
 {% block bodyy %}
-<h1>{{student.id}}</h1>
-<a href={% url "tasks:show_ftasks" student.id %}>false task</a>
-<a href={% url "tasks:show_ttasks" student.id %}>true task</a>
+
+
+<div class="container " style="border-radius: 25px;">
+   <div class="text-center" style="width: 18rem;">
+  <div class="card-body">
+    <h1 class="card-title">Hello {{student.member_id.first_name}}</h1>
+
+    <p class="card-text">you have done {{count_ttask}} tasks.</p>
+    <p class="card-text">you have undone {{count_ftask}} tasks.</p>
+    <a href={% url "tasks:show_ftasks" student.id %} class="btn btn-primary" style="margin-bottom: 25px; background-color: white;color:black">Show Undone Tasks</a>
+    <a href={% url "tasks:show_ttasks" student.id %} class="btn btn-primary" style=" background-color: white;color:black">Show Done Tasks</a>
+  </div>
+</div>
+
+
+  </div>
+  <script src="{% static 'member/js/signup_birthday.js' %}"></script>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 {% endblock %}
+
+
+
+
+
+
+
+{% comment %} {%extends "base.html"    }                                                                                                                                                                                      %}
+{%load static%}
+{% block headd%}
+<title>sign up </title>
+<link href= "{% static '/member/css/style_siup.css'%}"  type="text/css" rel="stylesheet">
+            
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% endblock %}
+
+{% block bodyy%}
+
+
+<div class="container">
+      <form method="post" autocomplete="on">
+      {% csrf_token %}
+       
+
+
+        
+
+			
+    		<!---grade----->
+    		<div class="box radio">
+			
+          <label for="gender" class="fl fontLabel"> Grade: </label>
+    				<input type="radio" name="grade" value="grade" required> 10 &nbsp; &nbsp; &nbsp; &nbsp;
+    				<input type="radio" name="grade" value="grade" required> 11 &nbsp; &nbsp; &nbsp; &nbsp;
+					<input type="radio" name="grade" value="grade" required> 12
+    		</div>
+    		<!---grade--->
+
+        <!---mentor id----->
+        <div class="box radio">
+          <label for="gender" class="fl fontLabel"> Mentor Id: </label>
+    				<select name="mentor_id" id="cars">
+  					{% for mentor in mentors%}
+       				<option >{{mentor.id}}</option>
+  					{% endfor %}
+    		</div>
+        <!---mentor id----->
+
+    		
+    		<!---Submit Button------>
+    		<div class="box" style="background: #2d3e3f">
+    				<input type="Submit" name="Submit" class="submit" value="SUBMIT">
+    		</div>
+    		<!---Submit Button----->
+      </form>
+  </div>
+  <script src="{% static 'member/js/signup_birthday.js' %}"></script>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %} {% endcomment %}

@@ -1,30 +1,59 @@
-{%extends "base.html" %}
-
+{%extends "base.html"                                                                                                                                                                                          %}
+{%load static%}
 {% block headd%}
 <title>sign up </title>
+<link href= "{% static '/member/css/style_siup.css'%}"  type="text/css" rel="stylesheet">
+            
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 {% endblock %}
 
 {% block bodyy%}
-<form method="post">
-{% csrf_token %}
 
 
-  <label for="fname">Grade:</label><br>
-  <select name="mentor_id" id="cars">
-  <option >10</option>
-  <option >11</option>
-  <option >12</option>
-  </select><br><br>
-  
-  <label for="fname">mentor:</label><br>
-  <select name="mentor_id" id="cars">
-  {% for mentor in mentors%}
-        <option >{{mentor.id}}</option>
-  {% endfor %}
-  </select><br><br>
+<div class="container">
+      <form method="post" autocomplete="on">
+      {% csrf_token %}
+       
 
-  
 
-  <input type="submit" value="Submit">
-</form> 
+        
+
+			
+    		<!---grade----->
+    		<div class="box radio">
+			
+          <label for="gender" class="fl fontLabel"> Grade: </label>
+    				<input type="radio" name="grade" value="grade" required> 10 &nbsp; &nbsp; &nbsp; &nbsp;
+    				<input type="radio" name="grade" value="grade" required> 11 &nbsp; &nbsp; &nbsp; &nbsp;
+					<input type="radio" name="grade" value="grade" required> 12
+    		</div>
+    		<!---grade--->
+
+        <!---mentor id----->
+        <div class="box radio">
+          <label for="gender" class="fl fontLabel"> Mentor Id: </label>
+    				<select name="mentor_id" id="cars">
+  					{% for mentor in mentors%}
+       				<option >{{mentor.id}}</option>
+  					{% endfor %}
+    		</div>
+        <!---mentor id----->
+
+    		
+    		<!---Submit Button------>
+    		<div class="box" style="background: #2d3e3f">
+    				<input type="Submit" name="Submit" class="submit" value="SUBMIT">
+    		</div>
+    		<!---Submit Button----->
+      </form>
+  </div>
+  <script src="{% static 'member/js/signup_birthday.js' %}"></script>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 {% endblock %}
